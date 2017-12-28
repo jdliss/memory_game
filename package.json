@@ -4,7 +4,8 @@
   "description": "## SET UP * npm install",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jdliss/memory_game/issues"
   },
-  "homepage": "https://github.com/jdliss/memory_game#readme"
+  "homepage": "https://github.com/jdliss/memory_game#readme",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  }
 }
