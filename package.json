@@ -1,0 +1,20 @@
+{
+  "name": "memory_game",
+  "version": "1.0.0",
+  "description": "## SET UP * npm install",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdliss/memory_game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdliss/memory_game/issues"
+  },
+  "homepage": "https://github.com/jdliss/memory_game#readme"
+}
