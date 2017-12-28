@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/jdliss/memory_game#readme",
   "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "webpack": "^3.10.0"
   }
 }
