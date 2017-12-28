@@ -1,9 +1,9 @@
 const path = require('path');
 
 const webpackConfig = {
-  entry: path.resolve(__dirname, './index.jsx'),
+  entry: path.resolve(__dirname, 'app/index.jsx'),
   output: {
-    path: path.resolve(__dirname, './static'),
+    path: path.resolve(__dirname, 'app/static'),
     filename: 'bundle.js',
   },
   module: {

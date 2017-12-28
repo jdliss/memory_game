@@ -13,5 +13,4 @@ class Card extends Component {
       <div> This is a card </div>
     )
   }
-
 }

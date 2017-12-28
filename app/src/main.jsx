@@ -11,11 +11,10 @@ class Main extends Component {
 
   render() {
     return (
-      <div> 
+      <div>
         <div> Main Page </div>
         <Card />
       </div>
     )
   }
-
 }
