@@ -1,3 +1,4 @@
 # [NAME TBD]
 
-* lets gooooooooooo
+## SET UP
+* npm install
