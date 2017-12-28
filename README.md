@@ -2,3 +2,4 @@
 
 ## SET UP
 * npm install
+* npm run compile
