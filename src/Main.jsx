@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Card from './card';
 
-class Card extends Component {
+class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -10,7 +11,10 @@ class Card extends Component {
 
   render() {
     return (
-      <div> This is a card </div>
+      <div>
+        <div> Main Page </div>
+        <Card />
+      </div>
     )
   }
 }
