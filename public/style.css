@@ -1,0 +1,32 @@
+.container {
+  padding: 2%;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 10px;
+}
+
+.grid {
+  background-color: lightgrey;
+  border: 2px;
+  height: 200px;
+  width: 90%;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}

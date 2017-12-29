@@ -4,13 +4,13 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      placeholder = null
+      classNames: `grid ${this.props.color}`
     }
   }
 
   render() {
     return (
-      <div> This is a card </div>
+      <div className={this.state.classNames}></div>
     )
   }
 }
