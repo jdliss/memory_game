@@ -1,5 +1,5 @@
 .container {
-  padding: 2%;
+  padding: 5% 15%;
 }
 
 .grid-wrapper {
@@ -8,11 +8,14 @@
   grid-gap: 10px;
 }
 
-.grid {
+.card {
   background-color: lightgrey;
   border: 2px;
+  max-height: 200px;
   height: 150px;
   width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .green {
