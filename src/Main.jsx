@@ -6,7 +6,8 @@ class Main extends Component {
     super(props)
     this.generateCards = this.generateCards.bind(this)
     this.state = {
-      colors: []
+      colors: [],
+      selectedCard: null
     }
   }
 
@@ -25,7 +26,9 @@ class Main extends Component {
     var list = []
     console.log(this.state.colors.length)
     for (var i = 0; i < this.state.colors.length; i++) {
-      list.push(<Card color={this.state.colors[i]} />)
+      list.push(
+        <Card color={this.state.colors[i]} selectedCard={this.state.selectedCard} />
+      )
     }
     return list
   }

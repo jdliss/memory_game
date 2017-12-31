@@ -4,17 +4,37 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.class = `card ${this.props.color}`
-    
-    this.displayColor = this.displayColor.bind(this);
+    this.clickEvents = this.clickEvents.bind(this)
+    this.toggleBorder = this.toggleBorder.bind(this);
+    this.compareCards = this.compareCards.bind(this)
   }
 
-  displayColor() {
-    console.log(this.props.color);
+  clickEvents(e) {
+    this.toggleBorder(e);
+    this.compareCards();
+  }
+
+  compareCards() {
+    if (this.props.selectedCard === null) {
+      this.props.selectedCard = this;
+    } else if (this.props.selectedCard === this) {
+      this.props.selectedCard = null
+    } else {
+      if (this.props.color === this.props.selectedCard.props.color) {
+        console.log('winner winner chicken dinner');
+      } else {
+        console.log('lol no');
+      }
+    }
+  }
+
+  toggleBorder(e) {
+    e.target.classList.toggle('clicked')
   }
 
   render() {
     return (
-      <div className={this.class} onClick={this.displayColor}></div>
+      <div className={this.class} onClick={this.clickEvents} data-color={this.props.color}></div>
     )
   }
 }
