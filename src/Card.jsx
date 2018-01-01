@@ -4,22 +4,25 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      class: `card ${this.props.color}`
+      class: 'card',
+      matched: false
     }
     this.clickEvents = this.clickEvents.bind(this);
-    this.toggleBorder = this.toggleBorder.bind(this);
+    this.toggleColor = this.toggleColor.bind(this);
     this.compareCards = this.compareCards.bind(this);
     this.resetClass = this.resetClass.bind(this);
   }
 
   clickEvents(e) {
-    this.toggleBorder(e);
-    this.compareCards();
+    if (!this.state.matched) {
+      this.toggleColor(e);
+      this.compareCards();
+    }
   }
 
   resetClass() {
     this.setState({
-      class: `card ${this.props.color}`      
+      class: 'card'
     })
   }
 
@@ -30,22 +33,41 @@ class Card extends Component {
       this.props.setSelectedCard(null);
       this.resetClass();
     } else {
-      if (this.props.color === this.props.selectedCard.props.color) {
-        console.log('winner winner chicken dinner');
-      } else {
-        console.log('lol no');
-      }
-      this.resetClass();
-      this.props.selectedCard.resetClass();
-      this.props.setSelectedCard(null);     
+      this.compareCardsHelper(this, this.props.selectedCard);
     }
   }
 
-  toggleBorder(e) {
-    // e.target.classList.toggle('clicked')
+  compareCardsHelper(cardOne, cardTwo) {
+    if (cardOne.props.color === cardTwo.props.color) {
+      console.log('found a match');
+      cardOne.lockCard();
+      cardTwo.lockCard();
+      cardOne.props.setSelectedCard(null);
+    } else {
+      window.setTimeout(() => {
+        cardOne.resetClass();
+        cardTwo.resetClass();
+        cardOne.props.setSelectedCard(null);
+      }, 1000);
+      console.log('not a match, resetting');
+    }
+  }
+
+  lockCard() {
     this.setState({
-      class: `card ${this.props.color} clicked`      
-    })
+      matched: true
+    });
+  }
+
+  toggleColor(e) {
+    if (this.props.selectedCard) {
+      this.setState({
+        class: `card ${this.props.color}`
+      });
+      if (this.props.selectedCard !== this) {
+        this.props.selectedCard.toggleColor();
+      }
+    }
   }
 
   render() {

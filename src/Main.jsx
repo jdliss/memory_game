@@ -31,7 +31,6 @@ class Main extends Component {
 
   generateCards() {
     var list = []
-    console.log(this.state.colors.length)
     for (var i = 0; i < this.state.colors.length; i++) {
       list.push(
         <Card color={this.state.colors[i]} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} />
