@@ -11,11 +11,20 @@ class Card extends Component {
     this.toggleColor = this.toggleColor.bind(this);
     this.compareCards = this.compareCards.bind(this);
     this.resetClass = this.resetClass.bind(this);
+    this.addBorder = this.addBorder.bind(this);
   }
 
-  clickEvents(e) {
+  addBorder() {
+    this.setState({
+      class: `${this.state.class} clicked`
+    })
+    debugger;
+  }
+
+  clickEvents() {
     if (!this.state.matched) {
-      this.toggleColor(e);
+      this.addBorder();
+      this.toggleColor();
       this.compareCards();
     }
   }
@@ -59,10 +68,10 @@ class Card extends Component {
     });
   }
 
-  toggleColor(e) {
+  toggleColor() {
     if (this.props.selectedCard) {
       this.setState({
-        class: `card ${this.props.color}`
+        class: `${this.state.class} ${this.props.color}`
       });
       if (this.props.selectedCard !== this) {
         this.props.selectedCard.toggleColor();
