@@ -16,9 +16,8 @@ class Card extends Component {
 
   addBorder() {
     this.setState({
-      class: `${this.state.class} clicked`
+      class: "card clicked"
     })
-    debugger;
   }
 
   clickEvents() {
@@ -64,14 +63,15 @@ class Card extends Component {
 
   lockCard() {
     this.setState({
-      matched: true
+      matched: true,
+      class: `card ${this.props.color}`
     });
   }
 
   toggleColor() {
     if (this.props.selectedCard) {
       this.setState({
-        class: `${this.state.class} ${this.props.color}`
+        class: `card clicked ${this.props.color}`
       });
       if (this.props.selectedCard !== this) {
         this.props.selectedCard.toggleColor();
