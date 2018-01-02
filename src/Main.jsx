@@ -6,10 +6,24 @@ class Main extends Component {
     super(props)
     this.setSelectedCard = this.setSelectedCard.bind(this);
     this.generateCards = this.generateCards.bind(this);
+    this.addMatchedPair = this.addMatchedPair.bind(this);
     this.state = {
       colors: [],
-      selectedCard: null
+      selectedCard: null,
+      matchedPairs: 0,
     }
+  }
+
+  componentDidUpdate() {
+    if (this.state.matchedPairs === this.state.colors.length/2) {
+      console.log('yay');
+    }
+  }
+
+  addMatchedPair() {
+    this.setState({
+      matchedPairs: this.state.matchedPairs + 1,
+    })
   }
 
   setSelectedCard(card) {
@@ -37,6 +51,7 @@ class Main extends Component {
           color={this.state.colors[i]}
           setSelectedCard={this.setSelectedCard}
           selectedCard={this.state.selectedCard}
+          addMatchedPair={this.addMatchedPair}
           />
       )
     }

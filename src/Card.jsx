@@ -50,6 +50,7 @@ class Card extends Component {
       console.log('found a match');
       cardOne.lockCard();
       cardTwo.lockCard();
+      cardOne.props.addMatchedPair();
       cardOne.props.setSelectedCard(null);
     } else {
       window.setTimeout(() => {
