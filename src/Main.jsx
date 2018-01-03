@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from './card';
+import Victory from './Victory';
 
 class Main extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class Main extends Component {
   componentDidUpdate() {
     if (this.state.matchedPairs === this.state.colors.length/2) {
       console.log('yay');
+      const modal = document.getElementsByClassName('modal')[0];
+      modal.style.display = "block";
     }
   }
 
@@ -60,10 +63,13 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="grid-wrapper">
-          {this.generateCards()}
+      <div>  
+        <div className="container">
+          <div className="grid-wrapper">
+            {this.generateCards()}
+          </div>
         </div>
+        <Victory matchedPairs={this.state.matchedPairs}/>
       </div>
     )
   }
