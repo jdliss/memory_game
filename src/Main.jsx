@@ -20,7 +20,9 @@ class Main extends Component {
     if (this.state.matchedPairs === this.state.colors.length/2) {
       console.log('yay');
       const modal = document.getElementsByClassName('modal')[0];
-      modal.style.display = "block";
+      setTimeout(() => {
+        modal.style.display = "block";
+      }, 1000);
     }
   }
 

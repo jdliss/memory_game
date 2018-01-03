@@ -5,10 +5,22 @@ class Victory extends Component {
     super(props)
     
     this.restart = this.restart.bind(this);
+    this.exit = this.exit.bind(this);
+  }
+  
+  componentDidMount() {
+    window.addEventListener('click', this.exit);
   }
 
   restart() {
     location.reload();
+  }
+
+  exit(e) {
+    if (e.target.className === "modal") {
+      const modal = document.getElementsByClassName('modal')[0];
+      modal.style.display = "none";
+    }
   }
 
   render() {
