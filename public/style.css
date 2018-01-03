@@ -16,26 +16,17 @@
   background-color: grey;
 }
 
+img {
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
 .clicked {
   border-style: solid;
   border-width: 5px;
 }
-
-/* .green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.red {
-  background-color: red;
-}
-
-.yellow {
-  background-color: yellow;
-} */
 
 .modal {
   display: none;
