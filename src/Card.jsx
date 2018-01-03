@@ -5,13 +5,17 @@ class Card extends Component {
     super(props);
     this.state = {
       class: 'card',
-      matched: false
+      matched: false,
+      display: 'hidden',
     }
+
     this.clickEvents = this.clickEvents.bind(this);
     this.toggleColor = this.toggleColor.bind(this);
     this.compareCards = this.compareCards.bind(this);
     this.resetClass = this.resetClass.bind(this);
     this.addBorder = this.addBorder.bind(this);
+
+    props.colorPromise.then(response => {this.color = response.color});
   }
 
   addBorder() {
@@ -65,14 +69,16 @@ class Card extends Component {
   lockCard() {
     this.setState({
       matched: true,
-      class: `card ${this.props.color}`
+      class: `card`,
+      display: 'show',
     });
   }
 
   toggleColor() {
     if (this.props.selectedCard) {
       this.setState({
-        class: `card clicked ${this.props.color}`
+        class: 'card clicked',
+        display: 'show',
       });
       if (this.props.selectedCard !== this) {
         this.props.selectedCard.toggleColor();
@@ -82,7 +88,9 @@ class Card extends Component {
 
   render() {
     return (
-      <div className={this.state.class} onClick={this.clickEvents} data-color={this.props.color}></div>
+      <div className={this.state.class} onClick={this.clickEvents} data-color={this.color}>
+        <img className={this.display} src={this.color}></img>
+      </div>
     )
   }
 }

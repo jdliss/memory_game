@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from './card';
 import Victory from './Victory';
+import axios from 'axios';
 
 class Main extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Main extends Component {
     for (var i = 0; i < this.state.colors.length; i++) {
       list.push(
         <Card
-          color={this.state.colors[i]}
+          colorPromise={axios.get(`http://localhost:9292/colors/${this.state.colors[i]}`)}
           setSelectedCard={this.setSelectedCard}
           selectedCard={this.state.selectedCard}
           addMatchedPair={this.addMatchedPair}
