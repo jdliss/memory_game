@@ -29,7 +29,7 @@ img {
 }
 
 .modal {
-  display: none;
+  display: block;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -46,7 +46,6 @@ img {
   margin-left: 50%;
   margin-top: 15%;
   transform: translate(-50%, 0%);
-  position: relative;
   border-radius: 15px;
 }
 
@@ -57,13 +56,12 @@ img {
 }
 
 #try-again {
-  padding: 10px 20px;
+  padding: 2% 3%;
   border-radius: 10px;
   background-color: rgb(147, 235, 194);
   margin-left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 15%;
-
 }
 
 .hidden {

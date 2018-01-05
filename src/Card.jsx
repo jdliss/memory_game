@@ -15,7 +15,9 @@ class Card extends Component {
     this.resetClass = this.resetClass.bind(this);
     this.addBorder = this.addBorder.bind(this);
 
-    props.colorPromise.then(response => {this.color = response.data.color});
+    props.colorPromise
+      .then(response => {this.color = response.data.color})
+      .catch(err => console.log(err));
   }
 
   addBorder() {

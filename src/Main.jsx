@@ -16,16 +16,6 @@ class Main extends Component {
     }
   }
 
-  componentDidUpdate() {
-    if (this.state.matchedPairs === this.state.colors.length/2) {
-      console.log('yay');
-      const modal = document.getElementsByClassName('modal')[0];
-      setTimeout(() => {
-        modal.style.display = "block";
-      }, 1000);
-    }
-  }
-
   addMatchedPair() {
     this.setState({
       matchedPairs: this.state.matchedPairs + 1,
@@ -54,6 +44,7 @@ class Main extends Component {
     for (var i = 0; i < this.state.colors.length; i++) {
       list.push(
         <Card
+          key={i}
           colorPromise={axios.get(`http://localhost:9292/colors/${this.state.colors[i]}`)}
           setSelectedCard={this.setSelectedCard}
           selectedCard={this.state.selectedCard}
@@ -65,6 +56,7 @@ class Main extends Component {
   }
 
   render() {
+    console.log(this.state.matchedPairs === this.state.colors.length/2);
     return (
       <div>  
         <div className="container">
@@ -72,7 +64,7 @@ class Main extends Component {
             {this.generateCards()}
           </div>
         </div>
-        <Victory matchedPairs={this.state.matchedPairs}/>
+        {this.state.matchedPairs === this.state.colors.length/2 ? <Victory/> : null}
       </div>
     )
   }
